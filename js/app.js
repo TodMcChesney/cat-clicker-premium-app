@@ -71,3 +71,15 @@ cutie.renderCatLI();
 // Create cat #2 instance
 var sneaky = new Cat('Sneaky', 'img/cat-2.jpg', 'cat-2', '2');
 sneaky.renderCatLI();
+
+// Create cat #3 instance
+var cuddly = new Cat('Cuddly', 'img/cat-3.jpg', 'cat-3', '3');
+cuddly.renderCatLI();
+
+// Create cat #4 instance
+var sleepy = new Cat('Sleepy', 'img/cat-4.jpg', 'cat-4', '4');
+sleepy.renderCatLI();
+
+// Create cat #5 instance
+var grumpy = new Cat('Grumpy', 'img/cat-5.jpg', 'cat-5', '5');
+grumpy.renderCatLI();

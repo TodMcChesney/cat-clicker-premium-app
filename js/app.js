@@ -35,15 +35,21 @@ var octopus = {
         // Initialize the 1st cat as the default currentCat
         model.currentCat = model.cats[0];
         // Initialize both views
-        catsListView.init();
+        catListView.init();
         selectedCatView.init();
     }
 };
 
 // Views (all visible elements of app)
-var catsListView = {
+var catListView = {
     init: function() {
-        console.log('catsListView.init() was called');
+        // Get ul element to add cats to
+        var catListElement = document.getElementById('cat-list');
+        // Call catListView render function
+        this.render();
+    },
+    render: function() {
+        console.log('catListView.render() was called');
     }
 };
 

@@ -28,3 +28,30 @@ var model = {
         }
     ]
 };
+
+// Octopus (communication hub)
+var octopus = {
+    init: function() {
+        // Initialize the 1st cat as the default currentCat
+        model.currentCat = model.cats[0];
+        // Initialize both views
+        catsListView.init();
+        selectedCatView.init();
+    }
+};
+
+// Views (all visible elements of app)
+var catsListView = {
+    init: function() {
+        console.log('catsListView.init() was called');
+    }
+};
+
+var selectedCatView = {
+    init: function() {
+        console.log('selectedCatView.init() was called');
+    }
+};
+
+// Initialize the app
+octopus.init();

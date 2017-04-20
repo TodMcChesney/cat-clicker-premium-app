@@ -40,6 +40,9 @@ var octopus = {
     },
     getCats: function() {
         return model.cats;
+    },
+    setCurrentCat: function(clickedCat) {
+        model.currentCat = clickedCat;
     }
 };
 
@@ -47,31 +50,39 @@ var octopus = {
 var catListView = {
     init: function() {
         // Get ul element to add cats to
-        this.catListElement = document.getElementById('cat-list');
+        catListElement = document.getElementById('cat-list');
         // Call catListView render function
         this.render();
     },
     render: function() {
         // Get array of cats to loop through from octopus
         var cats = octopus.getCats();
-        var i;
         var cat;
         var catListItem;
         // Loop through cats array
-        for (i = 0; i < cats.length; i++) {
+        model.cats.forEach(function(cat) {
             // Create a li for each cat with it's name as the text
-            cat = cats[i];
             catListItem = document.createElement('li');
             catListItem.textContent = cat.name;
+            // Attach a click event listener to each cat li
+            catListItem.addEventListener('click', function() {
+                // Send the octopus the cat that was clicked
+                octopus.setCurrentCat(cat);
+                // Call selectedCatView render function
+                selectedCatView.render();
+            });
             // Add each cat li to the ul element
             this.catListElement.appendChild(catListItem);
-        }
+        });
     }
 };
 
 var selectedCatView = {
     init: function() {
         console.log('selectedCatView.init() was called');
+    },
+    render: function() {
+        console.log('selectedCatView.render() was called');
     }
 };
 

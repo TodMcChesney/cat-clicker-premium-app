@@ -9,6 +9,11 @@ html {
     box-sizing: inherit;
 }
 
+img,
+li {
+    cursor: pointer;
+}
+
 .container {
     max-width: 640px;
     margin: 0 auto;

@@ -57,7 +57,6 @@ var catListView = {
     render: function() {
         // Get array of cats to loop through from octopus
         var cats = octopus.getCats();
-        var cat;
         var catListItem;
         // Loop through cats array
         model.cats.forEach(function(cat) {
@@ -72,7 +71,7 @@ var catListView = {
                 selectedCatView.render();
             });
             // Add each cat li to the ul element
-            this.catListElement.appendChild(catListItem);
+            catListElement.appendChild(catListItem);
         });
     }
 };

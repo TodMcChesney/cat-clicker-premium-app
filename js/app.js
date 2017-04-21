@@ -44,6 +44,9 @@ var octopus = {
     setCurrentCat: function(clickedCat) {
         model.currentCat = clickedCat;
     },
+    getCurrentCat: function() {
+        return model.currentCat;
+    },
     incrementCounter: function() {
         model.currentCat.clickCount ++;
         selectedCatView.render();
@@ -83,18 +86,23 @@ var catListView = {
 var selectedCatView = {
     init: function() {
         // Get DOM elements for the cat view
-        var catNameElement = document.getElementById('cat-name');
-        var catImageElement = document.getElementById('cat-image');
-        var counterElement = document.getElementById('cat-counter');
+        this.catNameElement = document.getElementById('cat-name');
+        this.catImageElement = document.getElementById('cat-image');
+        this.catCounterElement = document.getElementById('cat-counter');
         // Click event listener that increments counter
-        catImageElement.addEventListener('click', function() {
+        this.catImageElement.addEventListener('click', function() {
             octopus.incrementCounter();
         });
         // Call the selectedCatView render function
         this.render();
     },
     render: function() {
-        console.log('selectedCatView.render() was called');
+        // Get the current cat data from the octopus
+        var currentCat = octopus.getCurrentCat();
+        // Render the current cat
+        this.catNameElement.textContent = currentCat.name;
+        this.catImageElement.src = currentCat.image;
+        this.catCounterElement.textContent = currentCat.clickCount;
     }
 };
 

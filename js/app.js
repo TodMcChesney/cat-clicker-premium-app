@@ -57,7 +57,7 @@ var octopus = {
 var catListView = {
     init: function() {
         // Get ul element to add cats to
-        catListElement = document.getElementById('cat-list');
+        this.catListElement = document.getElementById('cat-list');
         // Call catListView render function
         this.render();
     },
@@ -65,7 +65,9 @@ var catListView = {
         // Get array of cats to loop through from octopus
         var cats = octopus.getCats();
         var catListItem;
-        // Loop through cats array
+        // Create a DocumentFragment to add each cat li to
+        var catListFragment = document.createDocumentFragment();
+        // Loop through cats array and add each cat li to the fragment
         model.cats.forEach(function(cat) {
             // Create a li for each cat with it's name as the text
             catListItem = document.createElement('li');
@@ -77,9 +79,11 @@ var catListView = {
                 // Call selectedCatView render function
                 selectedCatView.render();
             });
-            // Add each cat li to the ul element
-            catListElement.appendChild(catListItem);
+            // Add each cat li to the fragment
+            catListFragment.appendChild(catListItem);
         });
+        // Now that the fragment is complete append it to the cat-list ul
+        this.catListElement.appendChild(catListFragment);
     }
 };
 
